@@ -14,4 +14,7 @@ Themes:
 - Theme 1: Solid Waste collection schedule (seems easiest to do)
 - Theme 2: Solid Waste sorting tool
 - Theme 3: Guelph Transit adopt a bus stop
-- Theme 4: Guelph Transit managing bus stop amenities
+- Theme 4: Guelph Transit managing bus stop amenities 
+
+Ideas:
+- Theme2: Create an app that lets people identify which bin their garbage goes into. It can have a search bar option for people to type in the item, and it can have the option to use a barcode scanner built into the app. This way, they dont have to type it in. (Jonathan)
