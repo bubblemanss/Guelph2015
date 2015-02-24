@@ -6,6 +6,7 @@ Post your ideas here. It should have the following things in order to make it ea
 - idea
 - theme its relating to
 - brief summary of how you think we should implement it
+- your name (so we know who to ask about it)
 
 The implementation of the idea we can improve on if we choose the idea.
 
