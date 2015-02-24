@@ -7,4 +7,9 @@ Post your ideas here. It should have the following things in order to make it ea
 - theme its relating to
 - brief summary of how you think we should implement it
 
-The implementation we'll improve on if we choose the idea.
+The implementation of the idea we can improve on if we choose the idea.
+
+- Theme 1: Solid Waste collection schedule (seems easiest to do)
+- Theme 2: Solid Waste sorting tool
+- Theme 3: Guelph Transit adopt a bus stop
+- Theme 4: Guelph Transit managing bus stop amenities
