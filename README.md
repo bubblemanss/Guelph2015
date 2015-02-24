@@ -17,4 +17,4 @@ Themes:
 - Theme 4: Guelph Transit managing bus stop amenities 
 
 Ideas:
-- Theme2: Create an app that lets people identify which bin their garbage goes into. It can have a search bar option for people to type in the item, and it can have the option to use a barcode scanner built into the app. This way, they dont have to type it in. (Jonathan)
+- Theme2: Create an app that lets people identify which bin their garbage goes into. It can have a search bar option for people to type in the item, and it can have the option to use a barcode scanner built into the app. This way, they dont have to type it in. We can include like cached memory for frequently or recently chosen items and bookmarks so they wouldn't need to keep typing in the item. Maybe include something like stickers or like leveling up when committing an item to the app. (Jonathan & Malcom!)
