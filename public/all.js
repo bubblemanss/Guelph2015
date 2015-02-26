@@ -89,6 +89,11 @@ function Routes($routeProvider, $locationProvider, VIEWS) {
             controller  : 'HomeController',
             controllerAs: 'Home'
         })
+        .when('/search', {
+            templateUrl : VIEWS + 'search.html',
+            controller  : 'SearchController',
+            controllerAs: 'Search'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -103,8 +108,8 @@ function BaseController() {
 
     // Basic Page links
     vm.navigation = [
-         { name: 'Home', link: '#!' },
-         { name: 'Another Page', link: '#!/another-page' }
+         { name: 'Home', link: '#!/' },
+         { name: 'Search', link: '#!/search' }
     ];
 }
 
@@ -115,11 +120,21 @@ function HomeController() {
     var vm = this;
 
     vm.title = 'Home';
+    
 }
 
 angular
     .module('app')
     .controller('HomeController', HomeController);
+function SearchController() {
+    var vm = this;
+
+    vm.title = 'search';
+}
+
+angular
+    .module('app')
+    .controller('SearchController', SearchController);
 /**
  * This directive must be used as an attribute
  *                                        |
