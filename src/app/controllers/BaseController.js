@@ -3,8 +3,8 @@ function BaseController() {
 
     // Basic Page links
     vm.navigation = [
-         { name: 'Home', link: '#!' },
-         { name: 'Another Page', link: '#!/another-page' }
+         { name: 'Home', link: '#!/' },
+         { name: 'Search', link: '#!/search' }
     ];
 }
 

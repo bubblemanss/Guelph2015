@@ -13,6 +13,11 @@ function Routes($routeProvider, $locationProvider, VIEWS) {
             controller  : 'HomeController',
             controllerAs: 'Home'
         })
+        .when('/search', {
+            templateUrl : VIEWS + 'search.html',
+            controller  : 'SearchController',
+            controllerAs: 'Search'
+        })
         .otherwise({
             redirectTo: '/'
         });
