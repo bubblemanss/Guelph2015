@@ -1,0 +1,6 @@
+program_type,program_code,program_name,program_description,program_notes,contact_email
+regular,01,Curbside waste collection program,,,
+regular,02,Bulky items collection program,,,
+regular,03,Hazardous items collection program,,,
+seasonal,10,Goods exchange weekend program,,,
+seasonal,11,Paint + Reuse Centre program,,,

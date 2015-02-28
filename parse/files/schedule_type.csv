@@ -1,0 +1,4 @@
+schedule_type_code,schedule_type_name,schedule_type_description
+C,Curbside collection,
+S,Seasonal collection,
+Z,Contact City,

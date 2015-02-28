@@ -1,0 +1,7 @@
+schedule_code,schedule_type_code,schedule_name,schedule_description,schedule_remarks
+WA,C,Week A,curbside calendar schedule for week A,
+WB,C,Week B,curbside calendar schedule for week B,
+WZ,C,All week days,curbside calendar schedule for all week days,
+ZZ,Z,Contact city,,
+SG,S,Goods exchange,seasonal for Goods exchange program,
+SP,S,Paint + Reuse,seasonal for Paint + Reuse program,

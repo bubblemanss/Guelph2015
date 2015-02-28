@@ -1,0 +1,9 @@
+collection_code,collection_name,program_code,waste_stream,collection_notes,collection_alert
+O,organics,1,green,curbside collection,
+R,recycling,1,blue,curbside collection,
+L,landfill,1,grey,curbside collection,
+S,Sharp objects,1,grey,curbside collection,
+H,Hazardous,3,,"HHW Depot does NOT accept waste that is unidentified, radioactive, contains PCBs, ammunitions or explosives or classified as industrial, commercial or institutional.",
+B,Bulky items,2,,Purchase a ticket. Call Solid Waste Resources to schedule a pickup at 519-767-0598. Have the bulky item at the curb by 6:30 a.m. on the arranged day.,
+S1,Goods Exchange weekends,10,,"Seasonal - take place twice yearly once in the spring (May 15-18, 2015) and once in the fall (September 4-7, 2015)",
+S2,Paint + Reuse centre,11,,"Seasonal opening of the Paint + ReUse Centre, April 1-October 10, 2015",
