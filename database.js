@@ -1,30 +1,72 @@
-var mongojs = require('mongojs');
-const dburl = "mongodb://localhost:27017"
-var db = mongojs(dburl);
-var UserDB = db.collection('users');
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
 
-exports.EmailExists = function(email, callback) {
-  //faster to user find as opposed to findOne?
-  UserDB.find({
-    email: email
-  }, function(err, cursor) {
-    if (!err && cursor)
-      callback(true);
-    callback(false);
+var url = 'mongodb://localhost:27017';
+
+var SearchUser = function(email, userdb, callback, closeCallback) {
+  userdb.findOne({email: email}, function(err, user) {
+      if (err){
+        console.log(err);
+        callback(null);
+        closeCallback();
+      }
+      callback(user);
+      closeCallback();
+    }
+  );
+}
+
+var EmailExists = function(email, userdb, callback) {
+  userdb.findOne({email: email}, function(err, cursor) {
+      if (!err && cursor){
+        callback(true);
+      }
+      else  {
+        callback(false);
+      }
+    }
+  );
+}
+
+var CreateUser = function(user, userdb, callback, closeCallback) {
+  EmailExists(user['email'], userdb, function (exists) {
+    if (callback && exists) {
+      callback(false);
+      closeCallback();
+    }
+    else {
+      userdb.insert(user, function(err, result){
+        if (!err && callback){
+          callback(true);
+          closeCallback();
+        }
+        else{
+          console.log(err);
+        }
+      })
+    }
   });
 }
 
-exports.CreateUser = function(user, callback) {
-  //note: if we create a specific _id for each user based on their
-  // username and pass, then we can simplify this next part a bit
-  // by just attempting an insert (which will fail if _id already exists).
-  EmailExists(user['email'], function(exists) {
-    if (callback && exists) {
-      callback(false);
-    } else {
-      //Add the user to the database
-      UserDB.insert(user)
-      if (callback) callback(true);
+module.exports = function(data, method, callback){
+  MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    console.log("Connected correctly to server");
+
+    var userdb = db.collection('users');
+
+    if (method == "CreateUser"){
+      CreateUser(data, userdb, callback, function(){
+        db.close();
+      });
     }
-  });
+    else if (method == "SearchUser"){
+      SearchUser(data, userdb, callback, function(){
+        db.close();
+      });
+    }
+    else{
+
+    }
+  })
 }
