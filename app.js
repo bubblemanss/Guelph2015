@@ -7,7 +7,7 @@ var createUser = function(data, callback){
 }
 
 var searchUser = function(data, callback){
-    mongo(data, "SearchUser", callback)
+    mongo(data.email, "SearchUser", callback)
 }
 //var searchDB = function(query){
 //    return mongo.Query(query, function(data){
@@ -35,8 +35,17 @@ var server = http.createServer(function(request, response) {
                 });
             }
             else if (parsedBody.method == "search"){
-                searchUser(parsedBody, function(){
-
+                searchUser(parsedBody, function(data){
+                    if(data){
+                        response.writeHead(200, {"Content-Type": "application/json"});
+                        response.write("" + JSON.stringify(data));
+                        response.end();
+                    }
+                    else{
+                        response.writeHead(404, {"Content-Type": "application/json"});
+                        response.write("User does not exist.");
+                        response.end();
+                    }
                 });
             }
         });

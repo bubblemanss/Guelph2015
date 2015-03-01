@@ -10,14 +10,17 @@ var SearchUser = function(email, userdb, callback, closeCallback) {
         callback(null);
         closeCallback();
       }
-      callback(user);
-      closeCallback();
+      else{
+        callback(user);
+        closeCallback();
+      }
     }
   );
 }
 
 var EmailExists = function(email, userdb, callback) {
   userdb.findOne({email: email}, function(err, cursor) {
+        console.log(cursor);
       if (!err && cursor){
         callback(true);
       }
