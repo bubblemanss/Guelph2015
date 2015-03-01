@@ -1,0 +1,23 @@
+{
+  "name": "Guelph2015",
+  "version": "1.0.0",
+  "description": "http://open.guelph.ca/guelph-hackathon-2015/",
+  "main": "app.js",
+  "dependencies": {
+    "mongodb": "^1.4.31"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/l3ubbleman/Guelph2015.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/l3ubbleman/Guelph2015/issues"
+  },
+  "homepage": "https://github.com/l3ubbleman/Guelph2015"
+}
