@@ -1,5 +1,6 @@
     module.exports= function (data){
         return {
+            name: "street_address",
             address_id: returnColumn(data, 0),
             street_name: returnColumn(data, 1),
             street_number: returnColumn(data, 2),

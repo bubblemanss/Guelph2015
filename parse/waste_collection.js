@@ -1,5 +1,6 @@
     module.exports= function (data){
         return {
+            name: "waste_collection",
             collection_code: returnColumn(data, 0),
             collection_name: returnColumn(data, 1),
             program_code: returnColumn(data, 2),

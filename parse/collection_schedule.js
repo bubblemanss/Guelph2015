@@ -1,6 +1,7 @@
     module.exports= function (data){
         return {
-            schedule: returnColumn(data, 0),
+            name : "collection_schedule",
+            schedule_code: returnColumn(data, 0),
             collection_date: returnColumn(data, 1),
             program_code_array: returnColumn(data, 2)   
         }

@@ -1,5 +1,6 @@
     module.exports= function (data){
         return {
+            name : 'schedule_type',
             schedule_type_code: returnColumn(data, 0),
             schedule_type_name: returnColumn(data, 1),
             schedule_type_description: returnColumn(data, 2)
