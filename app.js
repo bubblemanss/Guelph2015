@@ -1,6 +1,7 @@
 var http = require("http");
 var user = require("./userData/user");
-var mongo = require("./userData/database"); //change to name of file for accessing mongoDB
+var mongo = require("./userData/database");
+//var parseHandler = require(./parse/parseHandler);
 
 var createUser = function(data, callback){
     mongo(user(data), "CreateUser", callback);
@@ -9,11 +10,7 @@ var createUser = function(data, callback){
 var searchUser = function(data, callback){
     mongo(data.email, "SearchUser", callback)
 }
-//var searchDB = function(query){
-//    return mongo.Query(query, function(data){
-//        return data;
-//    });
-//}
+
 
 var server = http.createServer(function(request, response) {
 
@@ -23,6 +20,19 @@ var server = http.createServer(function(request, response) {
             if (parsedBody.method == "create"){
                 createUser(parsedBody, function(check){
                     if(check){
+
+                        /*
+                        var csvObjects = [];
+                        parseHandler(parsedBody.address, function(err, data){
+                            if(!err){
+                                csvObjects.push(data);
+                            }
+                            else{
+                                console.log(err);
+                            }
+                        });
+                         */
+
                         response.writeHead(200, {"Content-Type": "application/json"});
                         response.write("Created user.");
                         response.end();
