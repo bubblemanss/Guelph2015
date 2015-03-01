@@ -1,6 +1,6 @@
 var http = require("http");
-var user = require("./user");
-var mongo = require("./database"); //change to name of file for accessing mongoDB
+var user = require("./userData/user");
+var mongo = require("./userData/database"); //change to name of file for accessing mongoDB
 
 var createUser = function(data, callback){
     mongo(user(data), "CreateUser", callback);
