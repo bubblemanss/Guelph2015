@@ -29,7 +29,7 @@
 
 	body, input, select, textarea {
 		color: #474747;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Source Sans Pro', Helvetica,Arial,Verdana,sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.65em;
@@ -878,6 +878,7 @@ label {
 }
 .loginform li {
 	display: inline;
+	text-align: center;
 }
 .loginform input:not([type=submit]) {
 	padding: 5px;
@@ -905,9 +906,14 @@ label {
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 .loginButton{
-	display: block;
-	text-align: center;
 	margin-top: 10px;
 	height: 50px;
 	width: 250px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#calendar {
+	max-width: 900px;
+	margin: 0 auto;
 }
