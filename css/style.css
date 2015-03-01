@@ -904,11 +904,6 @@ label {
 	margin-top: 15px;
 	border-radius: 3px;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
-}
-.loginButton{
-	margin-top: 10px;
-	height: 50px;
-	width: 250px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
