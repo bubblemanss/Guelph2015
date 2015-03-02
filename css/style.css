@@ -706,14 +706,19 @@
 /* Banner */
 
 	#banner {
-		background-image: url("../images/banner.jpg");
+		/*background: black;*/
+		background-image: url("../images/background.jpg");
 		background-position: center center;
 		background-size: cover;
-		height: 28em;
+		height: 25em;
 		text-align: center;
 		position: relative;
 	}
-
+		.banner-title {
+			padding-top: 20px;	
+			color: white;
+			font-size: 3em;	
+		}
 		#banner header {
 			position: absolute;
 			bottom: 0;
@@ -724,7 +729,25 @@
 			color: #fff;
 			padding: 1.5em 0;
 		}
-
+			#banner .spacer {
+				padding-top:3%;
+				width: 100%;
+			}
+			#banner .sign-in {
+				float: right;
+				display: inline-block;
+				padding-right: 4em;
+				padding-top: 1em;
+				color: white;
+			}
+			#banner .banner-message {
+				float: left;
+				display: inline-block;
+				top: 500px;
+			}
+			#banner input {
+				color: black;
+			}
 			#banner header h2 {
 				display: inline-block;
 				margin: 0;

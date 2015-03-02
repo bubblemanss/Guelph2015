@@ -55,7 +55,13 @@
 /* Banner */
 
 	#banner {
-		height: 20em;
+		height: 45em;
+	}
+	#banner .sign-in {
+		float: right;
+		display: inline-block;
+		padding: 0;
+		color: white;
 	}
 
 		#banner header {
