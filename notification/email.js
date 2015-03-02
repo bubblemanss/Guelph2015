@@ -27,7 +27,7 @@ var transport = nodemailer.createTransport(smtpPool({
     maxMessages: Infinity
 }));
 
-function sendEmail(email, message){
+module.exports = function (email, message){
     subjectLine = 'GARBAGE COLLECTION REMINDER!';
 
     //setup e-mail data
@@ -49,8 +49,6 @@ function sendEmail(email, message){
         else {
             console.log("Message sent : " + response.message);
         }
-
         transport.close();
-
     });
 }

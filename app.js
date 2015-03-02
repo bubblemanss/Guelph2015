@@ -1,6 +1,7 @@
 var http = require("http");
 var user = require("./userData/user");
 var mongo = require("./userData/database");
+var notifyHandler = require("./notifications/notifyHandler");
 //var parseHandler = require(./parse/parseHandler);
 
 var createUser = function(data, callback){
