@@ -7,11 +7,12 @@ var notifyHandler = require("./notifications/notifyHandler");
 var createUser = function(data, callback){
     mongo(user(data), "CreateUser", callback);
 }
-
 var searchUser = function(data, callback){
     mongo(data.email, "SearchUser", callback)
 }
-
+var findAllUser = function(callback){
+    mongo(null, "FindAll", callback);
+}
 
 var server = http.createServer(function(request, response) {
 

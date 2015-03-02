@@ -51,6 +51,18 @@ var CreateUser = function(user, userdb, callback, closeCallback) {
   });
 }
 
+var FindAll = function(userdb, callback, closeCallback){
+  userdb.find({}, function(err, cursor){
+    if(err){
+      console.log(err);
+    }
+    else {
+      callback(cursor.toArray());
+      closeCallback();
+    }
+  });
+}
+
 module.exports = function(data, method, callback){
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
@@ -65,6 +77,11 @@ module.exports = function(data, method, callback){
     }
     else if (method == "SearchUser"){
       SearchUser(data, userdb, callback, function(){
+        db.close();
+      });
+    }
+    else if (method == "FindAll"){
+      FindAll(userdb, callback, function(){
         db.close();
       });
     }
