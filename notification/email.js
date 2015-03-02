@@ -27,33 +27,30 @@ var transport = nodemailer.createTransport(smtpPool({
     maxMessages: Infinity
 }));
 
-function sendEmail(emailString){
+function sendEmail(email, message){
+    subjectLine = 'GARBAGE COLLECTION REMINDER!';
 
-subjectLine = 'GARBAGE COLLECTION REMINDER!';
-emailBody = 'this is me and i am free, i want to be, the onlyy, babbyyy, do you see?';
+    //setup e-mail data
+    transport.sendMail({
+        from: 'guelph.trashschedule@gmail.com',
+        to: email,
+        subject: subjectLine,
+        text: message,
+        attachments:[
+            {
+                filename: 'ECE290_Notes.pdf',
+                path: 'C:/Users/Malcom/Documents/Competitions/Guelph/First One/ECE290_Notes.pdf'
+            }
+        ]
+    }, function (error, response) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            console.log("Message sent : " + response.message);
+        }
 
-//setup e-mail data
-transport.sendMail({
-    from: 'guelph.trashschedule@gmail.com',
-    to: 'malcom309@gmail.com',
-    subject: subjectLine,
-    text: emailBody,
-    attachments:[
-    {
-        filename: 'ECE290_Notes.pdf',
-        path: 'C:\Users\Malcom\Documents\Competitions\Guelph\First One\ECE290_Notes.pdf'
-    }
-    ]
-}, function (error, response) {
-    if (error) {
-        console.log(error);
-    }
-    else {
-        console.log("Message sent : " + response.message);
-    }
+        transport.close();
 
-    transport.close();
-
-});
+    });
 }
-sendEmail(null);

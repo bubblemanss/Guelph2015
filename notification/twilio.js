@@ -10,7 +10,7 @@ var client = new twilio.RestClient('ACa37f9db8cd3913324c2d915d386692da', '878da3
 
 module.exports = function(number, message){
     client.sms.messages.create({
-        to:number,
+        to:"+1"+number,
         from:'+12268940217',
         body:message
     }, function(error, message) {
