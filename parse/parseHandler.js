@@ -66,7 +66,6 @@ function setReturnObj (address, callback, err){
 						var thisMonth = date.getUTCMonth()+1;
 						var thisDate = date.getUTCDate();
 						var thisDay = date.getUTCDay() + 1;
-						console.log(thisDate);
 						if (day.length > 2){//OR if addressCollection.split(';').length
 							var dateTracker = thisDay-1; //Acts as a indicator of current day
 
@@ -77,7 +76,7 @@ function setReturnObj (address, callback, err){
 								if (collectionSchedule.schedule_code[g] == scheduleCode && thisMonth == parseInt(dateHolder[1]) && parseInt(dateHolder[0]) == thisDate) {
 									//If same day then we can properly proceed
 									var templocation = g;
-									console.log (templocation);
+									//console.log (templocation);
 									//starts from the location we left off at (only run like 40 times cause a month don't got more then that 31 days)
 									for (w = templocation ; w < (collectionSchedule.schedule_code).length; w++)
 									{
@@ -92,16 +91,16 @@ function setReturnObj (address, callback, err){
 												// console.log ("Current date in csv  : " + collectionSchedule.collection_date[w]);
 
 												if (dateTracker != 7 && dateTracker != 1){//Not Sunday or Saturday
-													console.log (collectionSchedule.collection_date[w]);
+													//console.log (collectionSchedule.collection_date[w]);
 													arrayDate.push(collectionSchedule.collection_date[w]);
 													arrayType.push(collectionSchedule.program_code_array[w]);
 												}
 												// end of for loop you check to see if the array is good
 											}
 												if (w==(collectionSchedule.schedule_code).length-1){
-													console.log ("hey");
+													
 													dateTracker = thisDay; //reset dateTracker
-													console.log ("dateTracker RESET VALUE : "+ dateTracker);
+													//console.log ("dateTracker RESET VALUE : "+ dateTracker);
 												if (arrayDate.length<1){
 													for (m = 0 ; m < (collectionSchedule.schedule_code).length; m++){
 															var dateHolder = collectionSchedule.collection_date[m].split ('/') ;
@@ -112,8 +111,8 @@ function setReturnObj (address, callback, err){
 																	var tempdateHolder = collectionSchedule.collection_date[w].split ('/') ;
 																	if (collectionSchedule.schedule_code[q] == scheduleCode && thisMonth + 1 == parseInt(tempdateHolder[1])){
 																		//In the NEXT month
-																		console.log ("dateTracker for NONPROPER MONTH : " + dateTracker);
-																		console.log ("CURRENT CSV DATE FOR NONPROPER MONTH : " + collectionSchedule.collection_date[w]);
+																		//console.log ("dateTracker for NONPROPER MONTH : " + dateTracker);
+																		//console.log ("CURRENT CSV DATE FOR NONPROPER MONTH : " + collectionSchedule.collection_date[w]);
 																		if (dateTracker == 7) dateTracker = 0;//reached end of the week
 																		dateTracker ++;
 
@@ -163,7 +162,6 @@ function setReturnObj (address, callback, err){
 										
 										var tempdateHolder = collectionSchedule.collection_date[w].split ('/') ;
 										if (collectionSchedule.schedule_code[w] == scheduleCode && thisMonth== parseInt(tempdateHolder[1])){
-											console.log ("hey");
 											arrayDate.push(collectionSchedule.collection_date[w]);
 											arrayType.push(collectionSchedule.program_code_array[w]);
 										}
@@ -205,8 +203,8 @@ function setReturnObj (address, callback, err){
 										
 										if (arrayDate.length < 7)
 										{
-											console.log(arrayDate.length);
-											console.log(arrayType.length);
+											// console.log(arrayDate.length);
+											// console.log(arrayType.length);
 											
 											callback(err, response(day, arrayDate, arrayType, statutoryHolidays.date));
 										}
