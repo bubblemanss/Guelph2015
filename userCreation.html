@@ -24,39 +24,39 @@
 	</head>
 	<body>
 		<section class="loginform cf">
-		<form name="formData" onsubmit="createUser(this)" accept-charset="utf-8">
+		<form name="formData" id="form" onsubmit="createUser()" accept-charset="utf-8">
 			<ul>
 				<li>
 					<label for="usermail">Email</label>
-					<input type="email" name="usermail" placeholder="yourname@email.com" required>
+					<input id="usermail" type="email" name="usermail" placeholder="yourname@email.com" required>
 				</li>
 				<li>
 					<label for="password">Password</label>
-					<input type="password" name="password" placeholder="password" required>
+					<input id="password" type="password" name="password" placeholder="password" required>
 				</li>
 				<li>
 					<label for="firstName">First Name</label>
-					<input type="text" name="firstName" placeholder="Ron" required>
+					<input id="firstName" type="text" name="firstName" placeholder="Ron" required>
 				</li>
 				<li>
 					<label for="lastName">Last Name</label>
-					<input type="text" name="lastName" placeholder="Smith" required>
+					<input id="lastName" type="text" name="lastName" placeholder="Smith" required>
 				</li>
 				<li>
 					<label for="streetNum">Street Number</label>
-					<input type="text" name="streetNum" placeholder="00" required>
+					<input id="streetNum" type="text" name="streetNum" placeholder="00" required>
 				</li>
 				<li>
 					<label for="streetName">Street Name</label>
-					<input type="text" name="streetName" placeholder="Progress Avenue" required>
+					<input id="streetName" type="text" name="streetName" placeholder="Progress Avenue" required>
 				</li>
 				<li>
 					<label for="postalCode">Postal Code</label>
-					<input type="text" name="postalCode" placeholder="G2K0F1" required>
+					<input id="postalCode" type="text" name="postalCode" placeholder="G2K0F1" required>
 				</li>
 				<li>
 					<label for="phoneNum">Phone Number (Optional)</label>
-					<input type="text" name="phoneNum" placeholder="1114449929" required>
+					<input id="phoneNum" type="text" name="phoneNum" placeholder="1114449929" required>
 				</li>
 				<li>
 					<input type="submit" value="Submit">
