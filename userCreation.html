@@ -9,16 +9,22 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/userCallback.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
 			<link rel="stylesheet" href="css/normalize.css" />
 		</noscript>
+		<style>
+		div#skel-layers-hiddenWrapper{
+			height: 0px !important;
+		}
+		</style>
 	</head>
 	<body>
 		<section class="loginform cf">
-		<form name="login" action="index.html" method="get" accept-charset="utf-8">
+		<form name="formData" onsubmit="createUser(this)" accept-charset="utf-8">
 			<ul>
 				<li>
 					<label for="usermail">Email</label>
