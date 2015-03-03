@@ -80,6 +80,11 @@
 		padding: 20px;
 	}
 
+/* login form */
+.loginform {
+	width: 350px;
+}
+
 /* Footer */
 
 	#footer {

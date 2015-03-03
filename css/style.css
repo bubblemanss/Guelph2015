@@ -710,7 +710,7 @@
 		background-image: url("../images/background.jpg");
 		background-position: center center;
 		background-size: cover;
-		height: 25em;
+		height: 30em;
 		text-align: center;
 		position: relative;
 	}
@@ -868,7 +868,7 @@
 		}
 label {
 	display: block;
-	color: #999;
+	color: black;
 }
 .cf:before,
 .cf:after {
