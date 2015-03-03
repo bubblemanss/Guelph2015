@@ -11,7 +11,6 @@ function createUser(){
     var sendText = document.getElementById("sendText").value;
 
     var url = "http://127.0.0.1:8080";
-    console.log("form");
 
     var formData = {};
     formData.email = email;
