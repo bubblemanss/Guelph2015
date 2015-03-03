@@ -40,12 +40,7 @@ function createUser(){
     formData.sendText = sendText;
 
     jQuery.post(url, JSON.stringify(formData), function(data){
-        console.log('in');
-        //if (data.status == "200"){
-        //    alert("Account created!");
-        //} else {
-        //    alert("Creating account failed. Email in use");
-        //}
+        localStorage.setItem("data", data);
     })
 }
 
