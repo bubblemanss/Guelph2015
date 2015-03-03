@@ -7,6 +7,8 @@ function createUser(){
     var streetName = document.getElementById("streetName").value;
     var postalCode = document.getElementById("postalCode").value;
     var phoneNum = document.getElementById("phoneNum").value;
+    var sendEmail = document.getElementById("sendEmail").value;
+    var sendText = document.getElementById("sendText").value;
 
     var url = "http://127.0.0.1:8080";
     console.log("form");
