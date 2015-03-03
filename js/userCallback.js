@@ -22,6 +22,8 @@ function createUser(){
         streetName : streetName,
         postalCode : postalCode
     };
+    formData.sendEmail = sendEmail;
+    formData.sendText = sendText;
     formData.phoneNum = phoneNum;
     console.log(JSON.stringify(formData));
     jQuery.post(url, JSON.stringify(formData), function(data){
