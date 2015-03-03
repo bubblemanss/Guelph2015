@@ -20,6 +20,10 @@ $(document).ready(function() {
 		editable: true,
 		eventLimit: true, // allow "more" link when too many events
 		events: [
+		{
+		title: 'test',
+		start: '2015-03-03',
+		color: 'green'}
 		]
 	});
 	
