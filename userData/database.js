@@ -20,7 +20,6 @@ var SearchUser = function(email, userdb, callback, closeCallback) {
 
 var EmailExists = function(email, userdb, callback) {
   userdb.findOne({email: email}, function(err, cursor) {
-        console.log(cursor);
       if (!err && cursor){
         callback(true);
       }

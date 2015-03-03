@@ -1,7 +1,7 @@
 var http = require("http");
 var user = require("./userData/user");
 var mongo = require("./userData/database");
-var notifyHandler = require("./notifications/notifyHandler");
+var notifyHandler = require("./notification/notifyHandler");
 //var parseHandler = require(./parse/parseHandler);
 
 var createUser = function(data, callback){
@@ -21,14 +21,21 @@ var server = http.createServer(function(request, response) {
             var parsedBody = JSON.parse(jsonBody);
             if (parsedBody.method == "create"){
                 createUser(parsedBody, function(check){
+                    console.log(check);
+                    var data = {}
                     if(check){
+                        data.status = 200;
+                        data.message = "Create user.";
                         response.writeHead(200, {"Content-Type": "application/json"});
-                        response.write("Created user.");
+                        response.write(data.toString());
                         response.end();
                     }
                     else{
+                        data.status = 404;
+                        data.message = "Failed to create user.";
                         response.writeHead(404, {"Content-Type": "application/json"});
-                        response.write("Failed to create user.");
+                        console.log(data);
+                        response.write(data.toString());
                         response.end();
                     }
                 });
