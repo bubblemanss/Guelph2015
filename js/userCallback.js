@@ -27,3 +27,20 @@ function createUser(){
         console.log(data);
     })
 }
+
+function createMessage() {
+    var message = document.getElementById("secretMessage").value;
+    
+    var url = "http://127.0.0.1:8080";
+    console.log("form");
+
+    var formData = {
+        message : message,
+        method : 'find'
+    };
+
+    console.log(JSON.stringify(formData));
+    jQuery.post(url, JSON.stringify(formData), function(data){
+        console.log(data);
+    })
+}
