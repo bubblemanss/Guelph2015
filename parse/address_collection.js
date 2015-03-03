@@ -1,17 +1,13 @@
-    var fs = require('fs');
-    var parse = require('csv-parse');
-    var strData;
-    
-    var array = CSVReader(__dirname+'/files/waste_program.csv');
-    
-    //Function to read in CSV file
-    function CSVReader(filePath){
+    module.exports= function (data){
+        return {
+            name : "address_collection",
+            address_id: returnColumn(data, 0),
+            schedule_code: returnColumn(data, 1),
+            collection_day_array: returnColumn(data, 2)   
+        }
+    }
 
-        var parser = parse(function(err, data){
-        console.log (data);
-        //callback(err,arrayData);
-        });
-
-        fs.createReadStream(filePath).pipe(parser);
-        //console.log(fs.createReadStream(filePath));
+    function returnColumn (data, index) {
+        var col3 = data.map(function(value){return value[index];});
+        return col3;
     }

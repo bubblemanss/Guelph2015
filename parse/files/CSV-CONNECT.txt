@@ -1,0 +1,6 @@
+1) Take in Address Data from Users [Street-Number, Street-Name, Postal-Code] -> relate that to "address_id"
+2) Use Address-ID to get the Schedule Code and Collection day => Inside address_collection.csv
+3) Use Schedule Code to get Collection-Date and Program-code-array = > In collection_schedule
+	Program-code-array -> [waste_collection.csv] relates to what kind of garbage collection it is (second theme)		
+4) Schedule Code used to get schedule-type-code and schedule-name => schedule_master.csv
+5) Schedule-type-code used to get schedule-type-name (ie Curbside Collection)[pretty useless] => schedule_type.csv

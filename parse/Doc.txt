@@ -1,0 +1,8 @@
+length 10 - statutory_holidays
+length 45941 - address_collection
+length 6 - waste_program
+length 1096 - collection_schedule
+length 7- schedule_master
+length 4 - schedule_type
+length 45940 - street_address
+length 9- waste_collection
