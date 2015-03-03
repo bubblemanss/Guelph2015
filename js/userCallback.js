@@ -44,21 +44,21 @@ function createUser(){
     })
 }
 
-function createMessage() {
-    var message = document.getElementById("secretMessage").value;
-    
-    var url = "http://127.0.0.1:8080";
-
-    var formData = {
-        message : message,
-        method : 'find'
-    };
-
-    jQuery.post(url, JSON.stringify(formData), function(data){
-        if (data.status == "200"){
-            alert("Message sent!");
-        } else {
-            alert("Message failed.");
-        }
-    })
-}
+//function createMessage() {
+//    var message = document.getElementById("secretMessage").value;
+//
+//    var url = "http://127.0.0.1:8080";
+//
+//    var formData = {
+//        message : message,
+//        method : 'find'
+//    };
+//
+//    jQuery.post(url, JSON.stringify(formData), function(data){
+//        if (data.status == "200"){
+//            alert("Message sent!");
+//        } else {
+//            alert("Message failed.");
+//        }
+//    })
+//}
