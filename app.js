@@ -22,19 +22,6 @@ var server = http.createServer(function(request, response) {
             if (parsedBody.method == "create"){
                 createUser(parsedBody, function(check){
                     if(check){
-
-                        /*
-                        var csvObjects = [];
-                        parseHandler(parsedBody.address, function(err, data){
-                            if(!err){
-                                csvObjects.push(data);
-                            }
-                            else{
-                                console.log(err);
-                            }
-                        });
-                         */
-
                         response.writeHead(200, {"Content-Type": "application/json"});
                         response.write("Created user.");
                         response.end();
@@ -46,7 +33,7 @@ var server = http.createServer(function(request, response) {
                     }
                 });
             }
-            else if (parsedBody.method == "search"){
+            else if (parsedBody.method == "login"){
                 searchUser(parsedBody, function(data){
                     if(data){
                         response.writeHead(200, {"Content-Type": "application/json"});
@@ -59,6 +46,19 @@ var server = http.createServer(function(request, response) {
                         response.end();
                     }
                 });
+            }
+            else if (parsedBody.method == "find"){
+                findAllUser(function(data){
+                    data.forEach(function(entry){
+                        notifyHandler(null, null, {
+                            textValid:entry.sendText,
+                            emailValid:entry.sendEmail,
+                            message:parsedBody.message,
+                            phoneNumber:entry.phoneNumber,
+                            emailAddress:entry.email
+                        })
+                    })
+                })
             }
         });
     }

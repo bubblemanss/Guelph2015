@@ -37,10 +37,8 @@ var holidayText = function(phoneNumber, message){
     setTimeout(twilio(phoneNumber, message), 86400000);
 }
 
-var cityText = function(phoneNumbers, message){
-    phoneNumbers.forEach(function(entry){
-        twilio(entry, message);
-    });
+var cityText = function(phoneNumber, message){
+    twilio(phoneNumber, message);
 }
 
 var weeklyEmail = function(garbageDay, emailAddress, message, holidays){
@@ -77,25 +75,25 @@ var holidayEmail = function(emailAddress, message){
     setTimeout(email(emailAddress, message), 86400000);
 }
 
-var cityEmail = function(emailAddresses, message){
-    emailAddresses.forEach(function(entry){
-        email(entry, message);
-    });
+var cityEmail = function(emailAddress, message){
+    email(emailAddress, message);
 }
 
 module.exports = function(emailAddress, text, city){
     if(city){
         if(city.textValid){
-            cityText(city.phoneNumbers, city.message);
+            cityText(city.phoneNumber, city.message);
         }
-        cityEmail(city.emailAddresses, city.message);
+        if(city.emailValid) {
+            cityEmail(city.emailAddress, city.message);
+        }
     }
     else {
-        if(text.valid){
+        if(text){
             weeklyText(text.garbageDay, text.phoneNumber, text.message, text.holidays);
         }
-        if(emailAddress.valid){
-            weeklyEmail(emailAddress.garbageDay, emailAddress.emails, emailAddress.message, emailAddress.holidays);
+        if(emailAddress){
+            weeklyEmail(emailAddress.garbageDay, emailAddress.email, emailAddress.message, emailAddress.holidays);
         }
     }
 }

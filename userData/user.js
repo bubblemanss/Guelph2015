@@ -6,6 +6,8 @@ module.exports = function(data){
         firstName:data['firstName'],
         lastName:data['lastName'],
         phoneNumber:data['phoneNumber'],
-        address:data['address']
+        address:data['address'],
+        sendEmail:data['sendEmail'],
+        sendText:data['sendText']
     }
 }
