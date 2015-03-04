@@ -1,4 +1,9 @@
-function createUser(){
+function createUser(event){
+
+    //console.log('in');
+    //console.log(JSON.stringify(event));
+    event.preventDefault();
+
     var email = document.getElementById("usermail").value;
     var password = document.getElementById("password").value;
     var firstName = document.getElementById("firstName").value;
@@ -39,9 +44,42 @@ function createUser(){
     formData.sendEmail = sendEmail;
     formData.sendText = sendText;
 
-    jQuery.post(url, JSON.stringify(formData), function(data){
-        localStorage.setItem("data", data);
-    })
+    //console.log("request:" + JSON.stringify(formData));
+    //jQuery.post(url, JSON.stringify(formData), function(data){
+    //    console.log(data);
+    //    //localStorage.setItem("data", data);
+    //}, "json").fail(
+    //    function(data){
+    //        console.log('err');
+    //        console.log(data.status)
+    //        console.log(JSON.stringify(data));
+    //        console.log(data.getAllResponseHeaders());
+    //    }
+    //).done(
+    //    function(data){
+    //        console.log('done');
+    //        console.log(JSON.stringify(data));
+    //    }
+    //);
+
+    jQuery.ajax({
+        type:"POST",
+        url:"http://127.0.0.1:8080",
+        data:JSON.stringify(formData),
+        dataType:"json"
+    }).done(
+        function(data){
+            console.log('done');
+            console.log(JSON.stringify(data));
+        }
+    ).fail(
+        function(data){
+            console.log('err');
+            console.log(JSON.stringify(data));
+            console.log(data.status);
+            console.log(data.statusMessage);
+        }
+    );
 }
 
 //function createMessage() {

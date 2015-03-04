@@ -27,7 +27,7 @@ var server = http.createServer(function(request, response) {
                         data.status = 200;
                         data.message = "Create user.";
                         response.writeHead(200, {"Content-Type": "application/json"});
-                        response.write(data.toString());
+                        response.write(JSON.stringify(data));
                         response.end();
                     }
                     else{
@@ -35,7 +35,7 @@ var server = http.createServer(function(request, response) {
                         data.message = "Failed to create user.";
                         response.writeHead(404, {"Content-Type": "application/json"});
                         console.log(data);
-                        response.write(data.toString());
+                        response.write(JSON.stringify(data));
                         response.end();
                     }
                 });
