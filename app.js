@@ -44,7 +44,7 @@ var server = http.createServer(function(request, response) {
                         var data = {}
                         if(check){
                             data.status = 200;
-                            data.message = "Create user.";
+                            data.message = "Created user.";
                             response.writeHead(200, {"Content-Type": "application/json"});
                             response.write(JSON.stringify(data));
                             response.end();

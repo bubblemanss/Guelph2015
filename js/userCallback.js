@@ -43,17 +43,15 @@ function createUser(event){
     }
     formData.sendEmail = sendEmail;
     formData.sendText = sendText;
-    
+
     jQuery.ajax({
         type:"POST",
-        url:"http://127.0.0.1:8080",
+        url:url,
         data:JSON.stringify(formData),
         dataType:"json"
     }).done(
         function(data){
-        	localStorage.setItem('data', JSON.stringify(data));
-            console.log('done');
-            console.log(JSON.stringify(data));
+            alert(data.message);
         }
     ).fail(
         function(data){
@@ -65,21 +63,64 @@ function createUser(event){
     );
 }
 
-//function createMessage() {
-//    var message = document.getElementById("secretMessage").value;
-//
-//    var url = "http://127.0.0.1:8080";
-//
-//    var formData = {
-//        message : message,
-//        method : 'find'
-//    };
-//
-//    jQuery.post(url, JSON.stringify(formData), function(data){
-//        if (data.status == "200"){
-//            alert("Message sent!");
-//        } else {
-//            alert("Message failed.");
-//        }
-//    })
-//}
+function createMessage() {
+    event.preventDefault();
+
+    var message = document.getElementById("secretMessage").value;
+
+    var url = "http://127.0.0.1:8080";
+
+    var formData = {
+        message : message,
+        method : 'find'
+    };
+
+    jQuery.ajax({
+        type:"POST",
+        url:url,
+        data:JSON.stringify(formData),
+        dataType:"json"
+    }).done(
+        function(data){
+        }
+    ).fail(
+        function(data){
+            console.log('err');
+            console.log(JSON.stringify(data));
+            console.log(data.status);
+            console.log(data.statusMessage);
+        }
+    );
+}
+
+function login(event) {
+    event.preventDefault();
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    var url = "http://127.0.0.1:8080";
+
+    var formData = {
+        email : email,
+        password : password
+    };
+
+    jQuery.ajax({
+        type:"POST",
+        url:url,
+        data:JSON.stringify(formData),
+        dataType:"json"
+    }).done(
+        function(data){
+            localStorage.setItem("data", JSON.stringify(data));
+        }
+    ).fail(
+        function(data){
+            console.log('err');
+            console.log(JSON.stringify(data));
+            console.log(data.status);
+            console.log(data.statusMessage);
+        }
+    );
+}
