@@ -1,7 +1,7 @@
-var data = JSON.parse(localStorage.getItem('data'));
+var data = JSON.parse(localStorage.getItem('data')).garbage;
 var garbageDates = new Array();
 data.dates.day.forEach(function(day){
-	var bins = data.garbage.colours.shift();
+	var bins = data.colours.shift();
 	var month = data.dates.month.shift();
 	bins.forEach(function(colour){
 		if (colour === 'X'){
