@@ -20,9 +20,11 @@ var server = http.createServer(function(request, response) {
         request.on("data", function(jsonBody){
             var parsedBody = JSON.parse(jsonBody);
             if (parsedBody.method == "create"){
-                parseHandler(parsedBody.address, function(garbageData){
+                parseHandler(parsedBody.address, function(err, garbageData){
+                    console.log(garbageData);
                     parsedBody.garbage = garbageData.garbage
                     createUser(parsedBody, function(check){
+                        console.log(check);
                         var preGarbageDay = parseInt(garbageData.dayOfWeek) - 2;
                         if(parsedBody.sendEmail){
                             notifyHandler({
@@ -48,6 +50,7 @@ var server = http.createServer(function(request, response) {
                             response.writeHead(200, {"Content-Type": "application/json"});
                             response.write(JSON.stringify(data));
                             response.end();
+                            console.log("end");
                         }
                         else{
                             data.status = 404;
