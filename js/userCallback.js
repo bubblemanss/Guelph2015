@@ -2,7 +2,7 @@ function createUser(event){
 
     //console.log('in');
     //console.log(JSON.stringify(event));
-    event.preventDefault();
+    //event.preventDefault();
 
     var email = document.getElementById("usermail").value;
     var password = document.getElementById("password").value;
@@ -60,7 +60,6 @@ function createUser(event){
     //        console.log(JSON.stringify(data));
     //    }
     //);
-
     jQuery.ajax({
         type:"POST",
         url:"http://127.0.0.1:8080",

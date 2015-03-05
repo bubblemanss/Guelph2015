@@ -19,7 +19,6 @@ data.dates.day.forEach(function(day){
 			color: binColour
 		}
 		garbageDates.push(garbageEvent);
-		console.log(garbageEvent);
 	});
 });
 //
