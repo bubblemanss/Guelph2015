@@ -47,7 +47,6 @@ function createUser(event){
     //console.log("request:" + JSON.stringify(formData));
     //jQuery.post(url, JSON.stringify(formData), function(data){
     //    console.log(data);
-    //    //localStorage.setItem("data", data);
     //}, "json").fail(
     //    function(data){
     //        console.log('err');
@@ -69,6 +68,7 @@ function createUser(event){
         dataType:"json"
     }).done(
         function(data){
+        	localStorage.setItem('data', JSON.stringify(data));
             console.log('done');
             console.log(JSON.stringify(data));
         }
