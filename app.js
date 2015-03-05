@@ -2,7 +2,7 @@ var http = require("http");
 var user = require("./userData/user");
 var mongo = require("./userData/database");
 var notifyHandler = require("./notification/notifyHandler");
-//var parseHandler = require(./parse/parseHandler);
+var parseHandler = require("./parse/parseHandler");
 
 var createUser = function(data, callback){
     mongo(user(data), "CreateUser", callback);
@@ -20,24 +20,44 @@ var server = http.createServer(function(request, response) {
         request.on("data", function(jsonBody){
             var parsedBody = JSON.parse(jsonBody);
             if (parsedBody.method == "create"){
-                createUser(parsedBody, function(check){
-                    console.log(check);
-                    var data = {}
-                    if(check){
-                        data.status = 200;
-                        data.message = "Create user.";
-                        response.writeHead(200, {"Content-Type": "application/json"});
-                        response.write(JSON.stringify(data));
-                        response.end();
-                    }
-                    else{
-                        data.status = 404;
-                        data.message = "Failed to create user.";
-                        response.writeHead(404, {"Content-Type": "application/json"});
-                        console.log(data);
-                        response.write(JSON.stringify(data));
-                        response.end();
-                    }
+                parseHandler(parsedBody.address, function(garbageData){
+                    parsedBody.garbage = garbageData.garbage
+                    createUser(parsedBody, function(check){
+                        var preGarbageDay = parseInt(garbageData.dayOfWeek) - 2;
+                        if(parsedBody.sendEmail){
+                            notifyHandler({
+                                email:parsedBody.email,
+                                message:"Garbage day is tomorrow!",
+                                garbageDay:preGarbageDay,
+                                holidays:garbageData.holidays
+                            }, null, null)
+                        }
+                        if(parsedBody.sendText){
+                            notifyHandler(null, {
+                                phoneNumber:parsedBody.phoneNumber,
+                                message:"Garbage day is tomorrow!",
+                                garbageDay:preGarbageDay,
+                                holidays:garbageData.holidays
+                            }, null)
+                        }
+
+                        var data = {}
+                        if(check){
+                            data.status = 200;
+                            data.message = "Create user.";
+                            response.writeHead(200, {"Content-Type": "application/json"});
+                            response.write(JSON.stringify(data));
+                            response.end();
+                        }
+                        else{
+                            data.status = 404;
+                            data.message = "Failed to create user.";
+                            response.writeHead(404, {"Content-Type": "application/json"});
+                            console.log(data);
+                            response.write(JSON.stringify(data));
+                            response.end();
+                        }
+                    })
                 });
             }
             else if (parsedBody.method == "login"){

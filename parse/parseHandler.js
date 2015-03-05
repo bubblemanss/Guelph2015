@@ -22,7 +22,7 @@ module.exports = function(address, callback){
 			else {
 				array = data;
 			}
-			for (i = 0 ; i < array.length; i++){
+			for (var i = 0 ; i < array.length; i++){
 				//To check if all the objects are defined
 				objArray.push(setValue(data[i]));
 					if (objArray.length == 8) {

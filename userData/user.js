@@ -8,6 +8,7 @@ module.exports = function(data){
         phoneNumber:data['phoneNumber'],
         address:data['address'],
         sendEmail:data['sendEmail'],
-        sendText:data['sendText']
+        sendText:data['sendText'],
+        garbage:data['garbage']
     }
 }

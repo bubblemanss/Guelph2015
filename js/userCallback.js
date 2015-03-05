@@ -43,23 +43,7 @@ function createUser(event){
     }
     formData.sendEmail = sendEmail;
     formData.sendText = sendText;
-
-    //console.log("request:" + JSON.stringify(formData));
-    //jQuery.post(url, JSON.stringify(formData), function(data){
-    //    console.log(data);
-    //}, "json").fail(
-    //    function(data){
-    //        console.log('err');
-    //        console.log(data.status)
-    //        console.log(JSON.stringify(data));
-    //        console.log(data.getAllResponseHeaders());
-    //    }
-    //).done(
-    //    function(data){
-    //        console.log('done');
-    //        console.log(JSON.stringify(data));
-    //    }
-    //);
+    
     jQuery.ajax({
         type:"POST",
         url:"http://127.0.0.1:8080",

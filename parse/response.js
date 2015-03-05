@@ -36,22 +36,21 @@
     }
 
     function returnHolidayDate (date) {
-       
-        var dateData = {};
+        var holidayArray = [];
         var dayArray = [];
         var monthArray = [];
-  
-        for (i = 1 ; i < date.length ; i++){
-            //var gan = date[i].split('/');
-            //console.log (date);
-            dayArray.push ((date[i][0].split('/'))[0]);
-            monthArray.push ((date[i][0].split('/'))[1]);
-            //console.log (date.length);
-            if (dayArray.length == date.length-1 && monthArray.length == date.length-1 ){
-                dateData.day = dayArray;
-                dateData.month = monthArray;
-                
-                return dateData;
+
+        for (var i = 1 ; i < date.length ; i++){
+
+            var dateData = {};
+            dateData.day = ((date[i][0].split('/'))[0]);
+            dateData.month = ((date[i][0].split('/'))[1]);
+            //console.log (holidayArray);
+            holidayArray.push (dateData);
+
+            if (holidayArray.length == date.length-1)
+            {
+                return holidayArray;
             }
         }
     }
