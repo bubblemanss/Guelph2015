@@ -6,7 +6,7 @@ var job;
 var weeklyText = function(garbageDay, phoneNumber, message, holidays){
     try {
         job = new cronJob({
-                    cronTime:"0 0 18 * * "+garbageDay,
+                    cronTime:"*/10 * * * * *",
                     onTick:function(){
                         var check = false;
                         var date = new Date();
@@ -44,7 +44,7 @@ var cityText = function(phoneNumber, message){
 var weeklyEmail = function(garbageDay, emailAddress, message, holidays){
     try {
         job = new cronJob({
-            cronTime:"0 0 18 * * "+garbageDay,
+            cronTime:"*/10 * * * * *",
             onTick:function(){
                 var check = false;
                 var date = new Date();

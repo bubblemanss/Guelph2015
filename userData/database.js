@@ -52,12 +52,12 @@ var CreateUser = function(user, userdb, callback, closeCallback) {
 }
 
 var FindAll = function(userdb, callback, closeCallback){
-  userdb.find({}, function(err, cursor){
+  userdb.find().toArray(function(err, cursor){
     if(err){
       console.log(err);
     }
     else {
-      callback(cursor.toArray());
+      callback(cursor);
       closeCallback();
     }
   });

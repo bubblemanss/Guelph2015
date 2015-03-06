@@ -57,15 +57,15 @@
 
 				<section class="6u 12u(narrower) sign-in">
 					<section class="loginform cf">
-						<form name="login" action="index.html" method="get" accept-charset="utf-8">
+						<form name="login" action="calendarPage.html" onsubmit="login(event)">
 							<ul>
 								<li>
 									<label for="usermail">Email</label>
-									<input type="email" name="usermail" placeholder="yourname@email.com" required>
+									<input id="email2" type="email" name="usermail" placeholder="yourname@email.com" required>
 								</li>
 								<li>
 									<label for="password">Password</label>
-									<input type="password" name="password" placeholder="password" required></li>
+									<input id="password2" type="password" name="password" placeholder="password" required></li>
 								<li>
 									<input type="submit" value="Login">
 								</li>
@@ -74,7 +74,7 @@
 					</section>
 					<header>
 						<h2>Don't have an account: <em>Sign up! <a href="http://html5up.net"></a></em></h2>
-						<a href="loginPage.html" class="button">Create an account!</a>
+						<a href="userCreation.html" class="button">Create an account!</a>
 					</header>
 				</section>
 			
@@ -121,7 +121,7 @@
 				<div class="container">
 					<header>
 						<h2>Still interested? Sign up today!</h2>
-						<a href="loginPage.html" class="button">Sign me up</a>
+						<a href="userCreation.html" class="button">Sign me up</a>
 					</header>
 				</div>
 			</section>

@@ -2,21 +2,21 @@ function createUser(event){
 
     //console.log('in');
     //console.log(JSON.stringify(event));
-    //event.preventDefault();
-
-    if (localStorage.getItem('data') != null){
-    	var userData = JSON.parse(localStorage.getItem('data'));
-    	document.getElementById("usermail").innerHTML = userData.email;
-    	document.getElementById("password").innerHTML = userData.password;
-    	document.getElementById("firstName").innerHTML = userData.firstName;
-    	document.getElementById("lastName").innerHTML = userData.lastName;
-    	document.getElementById("streetNum").innerHTML = userData.address.streetNum;
-    	document.getElementById("streetName").innerHTML = userData.address.streetName;
-    	document.getElementById("postalCode").innerHTML = userData.address.postalCode;
-    	if(userData.phoneNum) {document.getElementById("phoneNum").innerHTML = userData.phoneNum;}
-    	document.getElementById("sendEmail").innerHTML = userData.sendEmail;
-    	document.getElementById("sendText").innerHTML = userData.sendText;
-    }
+    // event.preventDefault();
+    console.log(localStorage.getItem('data'));
+    // if (localStorage.getItem('data') != null){
+    // 	var userData = JSON.parse(localStorage.getItem('data'));
+    // 	document.getElementById("usermail").innerHTML = userData.email;
+    // 	document.getElementById("password").innerHTML = userData.password;
+    // 	document.getElementById("firstName").innerHTML = userData.firstName;
+    // 	document.getElementById("lastName").innerHTML = userData.lastName;
+    // 	document.getElementById("streetNum").innerHTML = userData.address.streetNum;
+    // 	document.getElementById("streetName").innerHTML = userData.address.streetName;
+    // 	document.getElementById("postalCode").innerHTML = userData.address.postalCode;
+    // 	if(userData.phoneNum) {document.getElementById("phoneNum").innerHTML = userData.phoneNum;}
+    // 	document.getElementById("sendEmail").innerHTML = userData.sendEmail;
+    // 	document.getElementById("sendText").innerHTML = userData.sendText;
+    // }
 
     var email = document.getElementById("usermail").value;
     var password = document.getElementById("password").value;
@@ -44,7 +44,7 @@ function createUser(event){
     };
     formData.sendEmail = sendEmail;
     formData.sendText = sendText;
-    formData.phoneNum = phoneNum;
+    formData.phoneNumber = phoneNum;
     if (sendEmail == 'on'){
         sendEmail = true;
     } else {
@@ -57,7 +57,7 @@ function createUser(event){
     }
     formData.sendEmail = sendEmail;
     formData.sendText = sendText;
-
+    
     jQuery.ajax({
         type:"POST",
         url:url,
@@ -65,7 +65,9 @@ function createUser(event){
         dataType:"json"
     }).done(
         function(data){
-            alert(data.message);
+            localStorage.setItem("data", JSON.stringify(data));
+            console.log(data);
+            // window.open("/calendarPage");
         }
     ).fail(
         function(data){
@@ -77,9 +79,9 @@ function createUser(event){
     );
 }
 
-function createMessage() {
+function createMessage(event) {
     event.preventDefault();
-
+    console.log('inn');
     var message = document.getElementById("secretMessage").value;
 
     var url = "http://127.0.0.1:8080";
@@ -110,16 +112,18 @@ function createMessage() {
 function login(event) {
     event.preventDefault();
 
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    var email = document.getElementById("email2").value;
+    var password = document.getElementById("password2").value;
 
     var url = "http://127.0.0.1:8080";
 
     var formData = {
+        method:"login",
         email : email,
         password : password
     };
 
+    console.log(formData);
     jQuery.ajax({
         type:"POST",
         url:url,
@@ -127,7 +131,8 @@ function login(event) {
         dataType:"json"
     }).done(
         function(data){
-            localStorage.setItem("data", JSON.stringify(data));
+            console.log(data);
+            sessionStorage.setItem("data", JSON.stringify(data));
         }
     ).fail(
         function(data){

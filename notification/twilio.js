@@ -8,7 +8,7 @@ var client = new twilio.RestClient('ACa37f9db8cd3913324c2d915d386692da', '878da3
 // Pass in parameters to the REST API using an object literal notation. The
 // REST client will handle authentication and response serialzation for you.
 
-module.exports = function(number, message){
+var meth = module.exports = function(number, message){
     client.sms.messages.create({
         to:"+1"+number,
         from:'+12268940217',
@@ -33,3 +33,5 @@ module.exports = function(number, message){
         }
     });
 }
+
+// meth(5195723351, "hey");

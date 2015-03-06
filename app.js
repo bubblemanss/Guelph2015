@@ -19,6 +19,7 @@ var server = http.createServer(function(request, response) {
     if (request.method == "POST"){
         request.on("data", function(jsonBody){
             var parsedBody = JSON.parse(jsonBody);
+            console.log(parsedBody);
             if (parsedBody.method == "create"){
                 parseHandler(parsedBody.address, function(err, garbageData){
                     console.log(garbageData);
@@ -48,7 +49,7 @@ var server = http.createServer(function(request, response) {
                             data.status = 200;
                             data.message = "Created user.";
                             response.writeHead(200, {"Content-Type": "application/json"});
-                            response.write(JSON.stringify(data));
+                            response.write(JSON.stringify(parsedBody));
                             response.end();
                             console.log("end");
                         }
@@ -60,12 +61,16 @@ var server = http.createServer(function(request, response) {
                             response.write(JSON.stringify(data));
                             response.end();
                         }
+                        return;
                     })
+                return;
                 });
             }
             else if (parsedBody.method == "login"){
                 searchUser(parsedBody, function(data){
+                    console.log("in");
                     if(data){
+                        console.log(data);
                         response.writeHead(200, {"Content-Type": "application/json"});
                         response.write("" + JSON.stringify(data));
                         response.end();
@@ -79,6 +84,8 @@ var server = http.createServer(function(request, response) {
             }
             else if (parsedBody.method == "find"){
                 findAllUser(function(data){
+                    console.log(data);
+                    
                     data.forEach(function(entry){
                         notifyHandler(null, null, {
                             textValid:entry.sendText,

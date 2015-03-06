@@ -16,6 +16,7 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/userCallback.js"></script>
 		<link rel="stylesheet" href="css/loginPage.css">
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
@@ -32,15 +33,15 @@
 		<h5>Sign In</h5>
 	</div>
 	<section class="loginform cf">
-		<form name="login" action="index.html" method="get" accept-charset="utf-8">
+		<form name="login"  onsubmit="login(event)" accept-charset="utf-8">
 			<ul>
 				<li>
 					<label for="usermail">Email</label>
-					<input type="email" name="usermail" placeholder="yourname@email.com" required>
+					<input id="email2" type="email" name="usermail" placeholder="yourname@email.com" required>
 				</li>
 				<li>
 					<label for="password">Password</label>
-					<input type="password" name="password" placeholder="password" required></li>
+					<input id="password2" type="password" name="password" placeholder="password" required></li>
 				<li>
 					<input type="submit" value="Login">
 				</li>
